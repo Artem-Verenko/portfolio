@@ -53,6 +53,9 @@ npm run test:e2e -- tests/example.spec.ts
 npm run test:e2e -- --debug
 ```
 
+git add dist -f
+git subtree push --prefix dist origin gh-pages
+
 ### Lint with [ESLint](https://eslint.org/)
 
 ```sh

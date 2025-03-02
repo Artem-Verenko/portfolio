@@ -1,2 +1,105 @@
-@import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 @import 'tailwindcss';
+
+:root {
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+  --transition-standard: all 0.3s ease;
+}
+
+.light {
+  --bg-main: #f8f9fa;
+  --bg-card: #ffffff;
+  --text-color: #1a202c;
+  --text-secondary: #4a5568;
+  --bg-secondary: #f7fafc;
+  --border-color: #e2e8f0;
+  --primary-color: #1a202c;
+  --accent-color: #38b2ac;
+  --accent-hover: #319795;
+  --nav-bg: rgba(255, 255, 255, 0.6);
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --shadow-strength: 0 4px 10px;
+}
+
+.dark {
+  --bg-main: #121212;
+  --bg-card: #1e1e1e;
+  --text-color: #e2e8f0;
+  --text-secondary: #a0aec0;
+  --bg-secondary: #1e293b;
+  --border-color: #2d3748;
+  --primary-color: #e2e8f0;
+  --accent-color: #4fd1c5;
+  --accent-hover: #38b2ac;
+  --nav-bg: rgba(18, 18, 18, 0.6);
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --shadow-strength: 0 4px 12px;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.025em;
+}
+
+h2 {
+  font-size: 1.5rem;
+  letter-spacing: -0.015em;
+}
+
+a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: var(--transition-standard);
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+.card {
+  background-color: var(--bg-card);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-strength) var(--shadow-color);
+  transition: var(--transition-standard);
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  background-color: var(--accent-color);
+  color: white;
+  border-radius: 0.25rem;
+  font-weight: 500;
+  transition: var(--transition-standard);
+}
+
+.button:hover {
+  background-color: var(--accent-hover);
+}

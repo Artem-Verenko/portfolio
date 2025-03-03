@@ -5,7 +5,7 @@
   >
     <div class="container mx-auto px-6 py-4 flex items-center justify-between">
       <div class="font-bold leading-none">
-        <router-link to="/" class="transition-colors duration-300 hover:opacity-80">
+        <router-link to="/" class="transition-colors duration-300">
           <span class="text-(--primary-color) text-2xl font-mono">Artem Verenko</span
           ><span class="text-(--accent-color) text-2xl font-mono">.</span>
         </router-link>
@@ -57,7 +57,7 @@
 <script setup>
 import { ref, onMounted, nextTick, watch, onUnmounted } from 'vue'
 import ThemeSwitcher from './ThemeSwitcher.vue'
-import MobileMenuButton from './MobileMenuButton.vue'
+import MobileMenuButton from '@/assets/MobileMenuButton.vue'
 
 const mobileMenuOpen = ref(false)
 const mobileMenuContent = ref(null)
@@ -144,19 +144,5 @@ nav {
 .mobile-menu-container {
   transition: height 0.3s cubic-bezier(0.33, 1, 0.68, 1);
   will-change: height;
-}
-
-/* Remove all old animation classes that are no longer used */
-.menu-enter-active,
-.menu-leave-active,
-.menu-enter-from,
-.menu-leave-to,
-.menu-enter-to,
-.menu-leave-from,
-.fade-enter-active,
-.fade-leave-active,
-.fade-enter-from,
-.fade-leave-to {
-  display: none;
 }
 </style>

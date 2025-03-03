@@ -1,6 +1,6 @@
 import { describe, it, expect, beforeEach, afterEach } from 'vitest'
 import { mount } from '@vue/test-utils'
-import MobileMenuButton from '../MobileMenuButton.vue'
+import MobileMenuButton from '@/assets/MobileMenuButton.vue'
 
 // Tailwind's default md breakpoint is 768px
 const MOBILE_WIDTH = 767

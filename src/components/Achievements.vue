@@ -1,7 +1,7 @@
 <template>
   <section id="achievements" class="container mx-auto pb-5">
     <!-- Section heading for consistency -->
-    <div class="text-center mb-3">
+    <div class="text-center mb-3 mt-3">
       <h2 class="text-3xl font-bold">Achievements</h2>
       <div class="w-24 h-1 mx-auto bg-[var(--accent-color)] mt-2 mb-2"></div>
     </div>
@@ -94,7 +94,7 @@ const achievements = [
   {
     title: 'ASE comunity member',
     description:
-      'The Agile Software Engineering (ASE) community is a group of like-minded individuals who are passionate about software development and agile methodologies.',
+      'The Agile Software Engineering (ASE) community is a group of individuals who are passionate about software development and agile methodologies.',
   },
   {
     title: 'AI chempion',

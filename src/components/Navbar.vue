@@ -3,7 +3,7 @@
     role="navigation"
     class="navbar fixed top-0 left-0 w-full border-b-2 border-(--accent-color) bg-(--nav-bg) backdrop-blur-xl z-50 transition-all duration-300"
   >
-    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+    <div class="container mx-auto px-5 py-4 flex items-center justify-between">
       <div class="font-bold leading-none">
         <router-link to="/" class="transition-colors duration-300">
           <span class="text-(--primary-color) text-2xl font-mono">Artem Verenko</span

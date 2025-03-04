@@ -1,14 +1,31 @@
 <template>
-  <section class="container mx-auto pb-2 pt-20">
+  <section class="container mx-auto px-5 pt-18">
     <div class="flex flex-col md:flex-row items-center">
       <div class="text-center md:text-left">
-        <p class="text-xl md:text-2xl mb-8">Software Developer</p>
+        <p class="text-xl md:text-2xl mb-2 mt-3">Software Developer</p>
 
-        <h2 class="bg-clip-text text-white text-5xl md:text-6xl font-bold mb-6 animate-fadeIn">
+        <!-- На medium та великих екранах показуємо "Hello, I'm" -->
+        <h2
+          class="hidden md:block bg-clip-text text-white text-5xl md:text-6xl font-bold mb-6 animate-fadeIn"
+        >
           Hello, I'm
         </h2>
+        <!-- На маленьких екранах показуємо DottedRing із зображенням -->
+        <div class="block md:hidden mb-2">
+          <div class="relative w-32 h-32 flex-shrink-0 overflow-hidden mx-auto">
+            <div class="w-full h-full relative">
+              <DottedRing />
+              <img
+                src="@/assets/prof.png"
+                alt="Professional Photo"
+                class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%] object-cover rounded-full shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
+
         <h2
-          class="bg-clip-text text-accent text-6xl md:text-6xl font-bold mb-6 animate-fadeIn text-(--accent-color)"
+          class="bg-clip-text text-accent text-5xl sm:text-6xl md:text-7xl font-bold mb-6 animate-fadeIn text-(--accent-color)"
         >
           Artem Verenko
         </h2>
@@ -17,7 +34,7 @@
           the potential of programming to shape the world around us.
         </p>
 
-        <div class="flex justify-center md:justify-start mt-8 space-x-4">
+        <div class="flex justify-center md:justify-start mt-6 space-x-4">
           <!-- Download CV Button -->
           <a
             href="#"
@@ -31,17 +48,16 @@
             >
               <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm9 4v-2H3v2h18z" />
             </svg>
-            <span class="text-[var(--accent-color)]">DOWNLOAD CV</span>
+            <span class="text-[var(--accent-color)] whitespace-nowrap">DOWNLOAD CV</span>
           </a>
 
-          <!-- GitHub Bubble Button with Thin Border -->
+          <!-- GitHub Bubble Button -->
           <a
             href="https://github.com/Artem-Verenko"
             class="flex items-center justify-center w-12 h-12 border border-[var(--accent-color)] rounded-full shadow-sm"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <!-- Inline GitHub SVG with fill-current -->
             <svg
               class="w-6 h-6 fill-current text-[var(--accent-color)]"
               viewBox="0 0 24 24"
@@ -54,14 +70,13 @@
             <span class="sr-only">GitHub</span>
           </a>
 
-          <!-- LinkedIn Bubble Button with Thin Border -->
+          <!-- LinkedIn Bubble Button -->
           <a
             href="https://www.linkedin.com/in/artemverenko/"
             class="flex items-center justify-center w-12 h-12 border border-[var(--accent-color)] rounded-full shadow-sm"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <!-- Inline LinkedIn SVG with fill-current -->
             <svg
               class="w-6 h-6 fill-current text-[var(--accent-color)]"
               viewBox="0 0 24 24"
@@ -76,14 +91,12 @@
         </div>
       </div>
 
+      <!-- Для medium та великих екранів: окремий контейнер для зображення з DottedRing -->
       <div
-        class="relative w-32 h-32 md:w-96 md:h-96 md:ml-16 md:mr-8 md:mt-16 md:mb-8 flex-shrink-0 overflow-hidden"
+        class="hidden md:block relative w-96 h-96 md:ml-16 md:mt-16 md:mb-8 flex-shrink-0 overflow-hidden"
       >
-        <!-- Container for both image and ring to ensure perfect centering -->
         <div class="w-full h-full relative">
-          <!-- SVG Dotted Ring with alternating dash lengths -->
           <DottedRing />
-          <!-- Image -->
           <img
             src="@/assets/prof.png"
             alt="Professional Photo"

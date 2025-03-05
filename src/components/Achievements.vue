@@ -1,9 +1,9 @@
 <template>
   <section id="achievements" class="container mx-auto pb-5">
     <!-- Section heading for consistency -->
-    <div class="text-center mb-3 mt-3">
+    <div class="text-center mb-4 mt-4">
       <h2 class="text-3xl font-bold">Achievements</h2>
-      <div class="w-24 h-1 mx-auto bg-[var(--accent-color)] mt-2 mb-2"></div>
+      <div class="w-24 h-1 mx-auto bg-[var(--accent-color)] mt-3 mb-3"></div>
     </div>
 
     <!-- Mobile view (single card with navigation) -->

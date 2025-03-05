@@ -1,0 +1,80 @@
+{
+  "workExperiences": [
+    {
+      "company": "NICE",
+      "logo": "@/assets/nice.png",
+      "positions": [
+        {
+          "title": "Software Engineer - CXOne Recording",
+          "period": "Apr 2024 - Present",
+          "descriptions": [
+            "Worked on C#, C++ and other technologies to enhance the CXOne Recording platform."
+          ]
+        },
+        {
+          "title": "C# Full Stack Developer - Nexidia Analytics",
+          "period": "Aug 2023 - Apr 2024",
+          "descriptions": [
+            "Utilized Jenkins, Perforce, and other tools to develop full stack solutions for Nexidia Analytics."
+          ]
+        },
+        {
+          "title": "QA Automation Engineer - Nexidia Analytics",
+          "period": "Feb 2022 - Aug 2023",
+          "descriptions": [
+            "Implemented automated testing solutions using Jenkins, NUnit, and other technologies."
+          ]
+        }
+      ]
+    },
+    {
+      "company": "Delphi Software",
+      "logo": "@/assets/delphi.png",
+      "positions": [
+        {
+          "title": "Software Engineer",
+          "period": "Aug 2023 - Present",
+          "descriptions": [
+            "Worked on various software engineering projects, contributing to the development and maintenance of software solutions."
+          ]
+        },
+        {
+          "title": "QA Automation Engineer",
+          "period": "Feb 2022 - Aug 2023",
+          "descriptions": [
+            "Developed and maintained automated testing frameworks to ensure software quality."
+          ]
+        },
+        {
+          "title": "QA Automation Engineer (Internship)",
+          "period": "May 2021 - Feb 2022",
+          "descriptions": [
+            "Assisted in the development of automated testing solutions during an internship."
+          ]
+        }
+      ]
+    }
+  ],
+  "educations": [
+    {
+      "institution": "Lviv Polytechnic National University",
+      "logo": "@/assets/lviv-polytechnic-logo.png",
+      "degrees": [
+        {
+          "title": "Master's degree, Software Engineering",
+          "period": "Sep 2022 - Dec 2023"
+        }
+      ]
+    },
+    {
+      "institution": "Vinnytsia National Technical University",
+      "logo": "@/assets/vinnytsia-national-technical-logo.png",
+      "degrees": [
+        {
+          "title": "Bachelor's degree, Software Engineering",
+          "period": "Sep 2018 - Jun 2022"
+        }
+      ]
+    }
+  ]
+}

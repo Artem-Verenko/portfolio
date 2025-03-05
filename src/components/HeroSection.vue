@@ -1,16 +1,14 @@
 <template>
-  <section class="container mx-auto px-5 pt-18">
+  <section class="container mx-auto px-5 pt-20 xl:pt-10">
     <div class="flex flex-col md:flex-row items-center">
       <div class="text-center md:text-left">
-        <p class="text-xl md:text-2xl mb-2 mt-3">Software Developer</p>
+        <p class="text-xl md:text-2xl mb-6 mt-3">Software Developer</p>
 
-        <!-- На medium та великих екранах показуємо "Hello, I'm" -->
-        <h2
-          class="hidden md:block bg-clip-text text-white text-5xl md:text-6xl font-bold mb-6 animate-fadeIn"
-        >
+        <!-- For medium and large screens show "Hello, I'm" -->
+        <h2 class="hidden md:block bg-clip-text text-5xl md:text-6xl font-bold mb-4 animate-fadeIn">
           Hello, I'm
         </h2>
-        <!-- На маленьких екранах показуємо DottedRing із зображенням -->
+        <!-- For small screens show DottedRing with image -->
         <div class="block md:hidden mb-2">
           <div class="relative w-32 h-32 flex-shrink-0 overflow-hidden mx-auto">
             <div class="w-full h-full relative">
@@ -91,7 +89,7 @@
         </div>
       </div>
 
-      <!-- Для medium та великих екранів: окремий контейнер для зображення з DottedRing -->
+      <!-- For medium and large screens: separate container for image with DottedRing -->
       <div
         class="hidden md:block relative w-96 h-96 md:ml-16 md:mt-16 md:mb-8 flex-shrink-0 overflow-hidden"
       >

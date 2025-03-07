@@ -1,8 +1,8 @@
 <template>
   <div>
     <HeroSection />
-    <Education />
-    <WorkExperience />
+    <CvController />
+    <Achievements />
   </div>
 </template>
 
@@ -10,6 +10,8 @@
 import Education from '@/components/Education.vue'
 import HeroSection from '../components/HeroSection.vue'
 import WorkExperience from '@/components/WorkExperience.vue'
+import CvController from '@/components/CvController.vue'
+import Achievements from '@/components/Achievements.vue'
 
 export default {
   name: 'Home',
@@ -17,6 +19,8 @@ export default {
     HeroSection,
     Education,
     WorkExperience,
+    CvController,
+    Achievements,
   },
 }
 </script>

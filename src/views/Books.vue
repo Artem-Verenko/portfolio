@@ -1,3 +1,3 @@
-<template>
-  <div>This is the Books page</div>
-</template>
+<script setup lang="ts"></script>
+
+<template></template>

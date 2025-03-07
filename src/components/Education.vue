@@ -1,6 +1,5 @@
 <template>
-  <section id="education" class="container mx-auto px-4 py-16">
-    <h2 class="text-4xl font-bold mb-12 text-center">Education</h2>
+  <section id="education" class="container mx-auto px-4">
     <div class="space-y-8">
       <div
         v-for="(education, index) in educations"

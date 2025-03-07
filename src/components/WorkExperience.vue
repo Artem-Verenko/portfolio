@@ -1,6 +1,5 @@
 <template>
-  <section id="experience" class="container mx-auto px-4 py-16">
-    <h2 class="text-4xl font-bold mb-12 text-center">Work Experience</h2>
+  <section id="experience" class="container mx-auto px-4">
     <div class="space-y-8">
       <div
         v-for="(experience, index) in workExperiences"

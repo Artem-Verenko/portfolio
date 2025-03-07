@@ -1,5 +1,5 @@
 <template>
-  <section id="achievements" class="container mx-auto pb-5">
+  <section id="achievements" class="container mx-auto pb-12">
     <!-- Section heading for consistency -->
     <div class="text-center mb-4 mt-4">
       <h2 class="text-3xl font-bold">Achievements</h2>

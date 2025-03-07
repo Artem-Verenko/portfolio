@@ -1,5 +1,5 @@
 <template>
-  <section class="container mx-auto px-5 pt-20 xl:pt-10">
+  <section class="container mx-auto px-5 pt-20 xl:pt-20">
     <div class="flex flex-col md:flex-row items-center">
       <div class="text-center md:text-left">
         <p class="text-xl md:text-2xl mb-6 mt-3">Software Developer</p>
@@ -104,10 +104,8 @@
       </div>
     </div>
   </section>
-  <Achievements />
 </template>
 
 <script setup>
 import DottedRing from '@/assets/DottedRing.vue'
-import Achievements from '@/components/Achievements.vue'
 </script>

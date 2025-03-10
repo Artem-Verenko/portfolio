@@ -1,3 +1,16 @@
 <template>
-  <div>This is the Blog page</div>
+  <div>
+    <ArticleList />
+  </div>
 </template>
+
+<script>
+import ArticleList from '@/components/ArticleList.vue'
+
+export default {
+  name: 'Blog',
+  components: {
+    ArticleList,
+  },
+}
+</script>

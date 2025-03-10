@@ -13,11 +13,11 @@
       <div class="flex items-center space-x-8">
         <!-- Desktop Menu -->
         <ul class="hidden md:flex space-x-8">
-          <li class="nav-item">
-            <router-link to="/blog" class="nav-link">BLOG</router-link>
+          <li class="font-mono font-semibold text-[0.95rem] tracking-[0.05em]">
+            <router-link to="/blog" class="hover:text-[var(--accent-hover)]">BLOG</router-link>
           </li>
-          <li class="nav-item">
-            <router-link to="/books" class="nav-link">BOOKS</router-link>
+          <li class="font-mono font-semibold text-[0.95rem] tracking-[0.05em]">
+            <router-link to="/books" class="hover:text-[var(--accent-hover)]">BOOKS</router-link>
           </li>
         </ul>
         <!-- Mobile Menu Button -->
@@ -29,7 +29,7 @@
     </div>
     <!-- Mobile Menu -->
     <div
-      class="mobile-menu-container md:hidden overflow-hidden"
+      class="md:hidden overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(0.33,_1,_0.68,_1)] will-change-[height]"
       :style="{ height: mobileMenuOpen ? mobileMenuHeight + 'px' : '0px' }"
     >
       <div
@@ -38,13 +38,19 @@
         data-testid="mobile-menu"
       >
         <ul class="px-6 py-4 space-y-3">
-          <li class="nav-item">
-            <router-link @click="toggleMobileMenu" to="/blog" class="block py-2 nav-link-mobile"
+          <li class="font-mono font-semibold text-[0.95rem] tracking-[0.05em]">
+            <router-link
+              @click="toggleMobileMenu"
+              to="/blog"
+              class="block py-2 transition-all duration-300 hover:text-[var(--accent-color)] hover:scale-105"
               >BLOG</router-link
             >
           </li>
-          <li class="nav-item">
-            <router-link @click="toggleMobileMenu" to="/books" class="block py-2 nav-link-mobile"
+          <li class="font-mono font-semibold text-[0.95rem] tracking-[0.05em]">
+            <router-link
+              @click="toggleMobileMenu"
+              to="/books"
+              class="block py-2 transition-all duration-300 hover:text-[var(--accent-color)] hover:scale-105"
               >BOOKS</router-link
             >
           </li>
@@ -87,62 +93,3 @@ onUnmounted(() => {
   window.removeEventListener('resize', updateMenuHeight)
 })
 </script>
-
-<style scoped>
-nav {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-}
-
-.nav-item {
-  font-family: var(--font-mono);
-  font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-}
-
-.nav-link {
-  position: relative;
-  padding-bottom: 4px;
-  transition: color 0.3s ease;
-}
-
-.nav-link:hover {
-  color: var(--accent-color);
-}
-
-.nav-link-mobile {
-  transition: all 0.3s ease;
-}
-
-.nav-link-mobile:hover {
-  color: var(--accent-color);
-  transform: scale(1.05);
-}
-
-.nav-link.router-link-active {
-  color: var(--accent-color);
-}
-
-.nav-link.router-link-active::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: var(--accent-color);
-  transform-origin: center;
-  transition: transform 0.3s ease;
-}
-
-.nav-link-mobile.router-link-active {
-  color: var(--accent-color);
-  font-weight: 700;
-}
-
-/* Mobile Menu Animation */
-.mobile-menu-container {
-  transition: height 0.3s cubic-bezier(0.33, 1, 0.68, 1);
-  will-change: height;
-}
-</style>

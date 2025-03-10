@@ -57,6 +57,16 @@
   ],
   "educations": [
     {
+      "institution": "SET University",
+      "logo": "@/assets/set-university-logo.jpg",
+      "degrees": [
+        {
+          "title": "After-degree, Generative AI for Developers",
+          "period": "Dec 2024 - Feb 2025"
+        }
+      ]
+    },
+    {
       "institution": "Lviv Polytechnic National University",
       "logo": "@/assets/lviv-polytechnic-logo.png",
       "degrees": [

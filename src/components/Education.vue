@@ -4,7 +4,7 @@
       <div
         v-for="(education, index) in educations"
         :key="index"
-        class="education-card rounded-lg p-8 shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+        class="bg-[var(--nav-bg)] backdrop-filter backdrop-blur-[10px] border border-[var(--border-color)] transition-all duration-300 shadow-[var(--shadow-strength)_var(--shadow-color)] text-[var(--text-color)] rounded-lg p-8 transform hover:translate-y-[-4px] hover:border-[var(--accent-color)] hover:shadow-xl"
       >
         <div class="flex items-center mb-2">
           <img
@@ -16,9 +16,11 @@
             {{ education.institution }}
           </h3>
         </div>
-        <div v-for="(degree, degIndex) in education.degrees" :key="degIndex" class="degree-item">
-          <p class="degree-title mb-1">{{ degree.title }}</p>
-          <p class="degree-period text-sm">{{ degree.period }}</p>
+        <div v-for="(degree, degIndex) in education.degrees" :key="degIndex" class="mb-3 last:mb-0">
+          <p class="mb-1 font-semibold text-[var(--primary-color)]">
+            {{ degree.title }}
+          </p>
+          <p class="text-sm text-[var(--text-secondary)]">{{ degree.period }}</p>
         </div>
       </div>
     </div>
@@ -32,7 +34,6 @@ import dbCards from '@/assets/data/db_cards.json'
 const educations = ref([])
 
 const getImageUrl = (path) => {
-  // Handle both direct imports and paths with @ alias
   if (path.startsWith('@/')) {
     return new URL(path.replace('@/', '../'), import.meta.url).href
   }
@@ -43,32 +44,3 @@ onMounted(() => {
   educations.value = dbCards.educations
 })
 </script>
-
-<style scoped>
-.education-card {
-  background-color: var(--nav-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-color);
-  transition: var(--transition-standard);
-  box-shadow: var(--shadow-strength) var(--shadow-color);
-  color: var(--text-color);
-}
-
-.education-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent-color);
-}
-
-.degree-title {
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.degree-period {
-  color: var(--text-secondary);
-}
-
-.degree-item:not(:last-child) {
-  margin-bottom: 0.75rem;
-}
-</style>

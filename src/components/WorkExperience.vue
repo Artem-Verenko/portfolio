@@ -4,7 +4,7 @@
       <div
         v-for="(experience, index) in workExperiences"
         :key="index"
-        class="experience-card rounded-lg pt-8 pr-8 pl-8 pb-4 shadow-lg transform hover:-translate-y-1 hover:shadow-2xl transition-all duration-300"
+        class="border border-[var(--border-color)] transition-all duration-300 shadow-[var(--shadow-strength)_var(--shadow-color)] text-[var(--text-color)] bg-[var(--nav-bg)] backdrop-blur-xl rounded-lg p-8 transform hover:translate-y-[-4px] hover:border-[var(--accent-color)] hover:shadow-xl"
       >
         <div class="flex items-center mb-2">
           <img
@@ -16,14 +16,14 @@
         </div>
         <div v-for="(position, posIndex) in experience.positions" :key="posIndex">
           <div class="flex items-start">
-            <span class="position-bullet mr-2">&#9675;</span>
+            <span class="text-[var(--accent-color)] leading-[1.5] mr-2">&#9675;</span>
             <div>
-              <p class="position-title">{{ position.title }}</p>
-              <p class="position-period text-sm mb-1">{{ position.period }}</p>
+              <p class="font-semibold text-[var(--primary-color)]">{{ position.title }}</p>
+              <p class="text-[var(--text-secondary)] text-sm mb-1">{{ position.period }}</p>
               <p
                 v-for="(description, descIndex) in position.descriptions"
                 :key="descIndex"
-                class="position-description mb-4"
+                class="text-[var(--text-color)] mb-4"
               >
                 {{ description }}
               </p>
@@ -53,37 +53,3 @@ onMounted(() => {
   workExperiences.value = dbCards.workExperiences
 })
 </script>
-
-<style scoped>
-.experience-card {
-  background-color: var(--nav-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--border-color);
-  transition: var(--transition-standard);
-  box-shadow: var(--shadow-strength) var(--shadow-color);
-  color: var(--text-color);
-}
-
-.experience-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--accent-color);
-}
-
-.position-title {
-  font-weight: 600;
-  color: var(--primary-color);
-}
-
-.position-period {
-  color: var(--text-secondary);
-}
-
-.position-description {
-  color: var(--text-color);
-}
-
-.position-bullet {
-  color: var(--accent-color);
-  line-height: 1.5;
-}
-</style>

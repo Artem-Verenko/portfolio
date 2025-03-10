@@ -7,7 +7,7 @@
     </div>
     <div class="container mx-auto p-4">
       <!-- Scrolling Card Container -->
-      <div class="bg-transparent backdrop-blur-xl rounded-lg shadow-lg overflow-auto">
+      <div class="rounded-lg overflow-auto">
         <div class="flex flex-col md:flex-row">
           <!-- Vertical Menu -->
           <nav class="p-4 m-4 border-r-0 md:border-r-2 md:border-[var(--accent-color)]">

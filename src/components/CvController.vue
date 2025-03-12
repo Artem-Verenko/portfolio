@@ -36,6 +36,8 @@
 import { ref, computed } from 'vue'
 import WorkExperience from './WorkExperience.vue'
 import Education from './Education.vue'
+import AboutMe from './AboutMe.vue'
+import Skills from './Skills.vue'
 
 const activeTab = ref('experience')
 
@@ -46,19 +48,9 @@ const currentComponent = computed(() => {
     case 'education':
       return Education
     case 'skills':
-      return {
-        template: `<div class="p-4">
-                    <h2 class="text-2xl font-bold">Skills</h2>
-                    <p>Coming soon...</p>
-                  </div>`,
-      }
+      return Skills
     case 'about':
-      return {
-        template: `<div class="p-4">
-                    <h2 class="text-2xl font-bold">About me</h2>
-                    <p>Coming soon...</p>
-                  </div>`,
-      }
+      return AboutMe
     default:
       return WorkExperience
   }

@@ -42,11 +42,24 @@ import dbCards from '@/assets/data/db_cards.json'
 const workExperiences = ref([])
 
 const getImageUrl = (path) => {
-  // Handle both direct imports and paths with @ alias
-  if (path.startsWith('@/')) {
-    return new URL(path.replace('@/', '../'), import.meta.url).href
+  try {
+    if (path.startsWith('@/')) {
+      // Handle paths with @ alias
+      return new URL(path.replace('@/', '../'), import.meta.url).href
+    } else if (path.startsWith('./') || path.startsWith('../')) {
+      // Handle relative paths
+      return new URL(path, import.meta.url).href
+    } else if (path.match(/^https?:\/\//)) {
+      // External URLs
+      return path
+    } else {
+      // Assume path is relative to assets
+      return new URL(`../assets/${path}`, import.meta.url).href
+    }
+  } catch (error) {
+    console.error(`Failed to load image: ${path}`, error)
+    return new URL('../assets/placeholder.png', import.meta.url).href
   }
-  return path
 }
 
 onMounted(() => {

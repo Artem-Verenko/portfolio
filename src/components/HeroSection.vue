@@ -96,7 +96,7 @@
         <div class="w-full h-full relative">
           <DottedRing />
           <img
-            src="@/assets/prof.png"
+            :src="profPic"
             alt="Professional Photo"
             class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[85%] h-[85%] object-cover rounded-full shadow-lg"
           />
@@ -108,4 +108,5 @@
 
 <script setup>
 import DottedRing from '@/assets/DottedRing.vue'
+import profPic from '@/assets/prof.png'
 </script>

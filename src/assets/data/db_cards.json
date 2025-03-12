@@ -2,7 +2,7 @@
   "workExperiences": [
     {
       "company": "NICE",
-      "logo": "@/assets/nice.png",
+      "logo": "nice.png",
       "positions": [
         {
           "title": "Software Engineer - CXOne Recording",
@@ -29,7 +29,7 @@
     },
     {
       "company": "Delphi Software",
-      "logo": "@/assets/delphi.png",
+      "logo": "delphi.png",
       "positions": [
         {
           "title": "Software Engineer",
@@ -58,7 +58,7 @@
   "educations": [
     {
       "institution": "SET University",
-      "logo": "@/assets/set-university-logo.jpg",
+      "logo": "set-university-logo.jpg",
       "degrees": [
         {
           "title": "After-degree, Generative AI for Developers",
@@ -68,7 +68,7 @@
     },
     {
       "institution": "Lviv Polytechnic National University",
-      "logo": "@/assets/lviv-polytechnic-logo.png",
+      "logo": "lviv-polytechnic-logo.png",
       "degrees": [
         {
           "title": "Master's degree, Software Engineering",
@@ -78,7 +78,7 @@
     },
     {
       "institution": "Vinnytsia National Technical University",
-      "logo": "@/assets/vinnytsia-national-technical-logo.png",
+      "logo": "vinnytsia-national-technical-logo.png",
       "degrees": [
         {
           "title": "Bachelor's degree, Software Engineering",

@@ -20,7 +20,6 @@
 
 <script>
 import ArticleView from '@/components/ArticleView.vue'
-// Use dynamic imports instead of importing each article individually
 const articleFiles = import.meta.glob('@/assets/data/articles/*.json', { eager: true })
 
 export default {
@@ -34,36 +33,15 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      article: null,
-      loading: true,
-      articles: {},
-    }
-  },
-  created() {
-    // Load all articles from the glob imports
-    this.articles = Object.values(articleFiles).reduce((acc, module) => {
-      acc[module.default.id] = module.default
-      return acc
-    }, {})
-
-    this.loadArticle()
-  },
-  watch: {
-    id() {
-      this.loadArticle()
+  computed: {
+    articles() {
+      return Object.values(articleFiles).reduce((acc, module) => {
+        acc[module.default.id] = module.default
+        return acc
+      }, {})
     },
-  },
-  methods: {
-    loadArticle() {
-      this.loading = true
-
-      // Simulate API fetch delay
-      setTimeout(() => {
-        this.article = this.articles[this.id]
-        this.loading = false
-      }, 300)
+    article() {
+      return this.articles[this.id]
     },
   },
 }

@@ -1,0 +1,26 @@
+{
+  "id": 2,
+  "title": "Tailwind CSS 4 in Action",
+  "summary": "Learn how to build responsive, modern designs using Tailwind CSS 4.",
+  "date": "2023-12-05T09:45:00Z",
+  "preview-image": "article-preview-2.png",
+  "blocks": [
+    {
+      "type": "text",
+      "content": "Tailwind CSS is a utility-first CSS framework that accelerates the design process by providing prebuilt classes."
+    },
+    {
+      "type": "subheading",
+      "content": "Responsive Design"
+    },
+    {
+      "type": "text",
+      "content": "With Tailwind's responsive modifiers, you can easily adjust layouts for mobile, tablet, and desktop views."
+    },
+    {
+      "type": "image",
+      "alt": "Responsive design with Tailwind CSS",
+      "src": "article-illustration-2.png"
+    }
+  ]
+}

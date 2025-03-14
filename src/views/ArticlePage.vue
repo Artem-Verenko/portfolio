@@ -20,7 +20,6 @@
 
 <script>
 import ArticleView from '@/components/ArticleView.vue'
-const articleFiles = import.meta.glob('@/assets/data/articles/*.json', { eager: true })
 
 export default {
   name: 'ArticlePage',
@@ -33,15 +32,36 @@ export default {
       required: true,
     },
   },
-  computed: {
-    articles() {
-      return Object.values(articleFiles).reduce((acc, module) => {
-        acc[module.default.id] = module.default
-        return acc
-      }, {})
+  data() {
+    return {
+      article: null,
+      loading: true,
+    }
+  },
+  created() {
+    this.loadArticle()
+  },
+  watch: {
+    id() {
+      this.loadArticle()
     },
-    article() {
-      return this.articles[this.id]
+  },
+  methods: {
+    async loadArticle() {
+      this.loading = true
+      try {
+        // Завантаження статті з папки public/articles
+        const response = await fetch(`public/articles/article${this.id}.json`)
+        if (!response.ok) {
+          throw new Error('Article not found')
+        }
+        this.article = await response.json()
+      } catch (error) {
+        console.error(error)
+        this.article = null
+      } finally {
+        this.loading = false
+      }
     },
   },
 }

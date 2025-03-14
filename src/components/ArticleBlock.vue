@@ -14,7 +14,7 @@
     </h2>
     <img
       v-else-if="block.type === 'image'"
-      :src="block.src"
+      :src="getImageSrc(block)"
       :alt="block.alt"
       class="w-full h-auto rounded shadow"
     />
@@ -31,6 +31,15 @@ export default {
     block: {
       type: Object,
       required: true,
+    },
+  },
+  methods: {
+    getImageSrc(block) {
+      // Завантаження зображення з public/articles
+      if (block.src) {
+        return `public/articles/${block.src}`
+      }
+      return '/assets/placeholder.png'
     },
   },
 }

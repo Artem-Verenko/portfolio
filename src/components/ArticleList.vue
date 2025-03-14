@@ -7,15 +7,17 @@
         @click="viewArticle(article.id)"
         class="cursor-pointer border border-[var(--border-color)] transition-all duration-300 shadow-[var(--shadow-strength)_var(--shadow-color)] text-[var(--text-color)] bg-[var(--nav-bg)] backdrop-blur-xl rounded-lg p-0 transform hover:translate-y-[-4px] hover:border-[var(--accent-color)] hover:shadow-2xl flex flex-col md:flex-row"
       >
+        <!-- Ліва секція з прев'ю зображення -->
         <div
           class="relative md:w-1/3 w-full h-48 md:h-auto flex items-center justify-center rounded-t-lg md:rounded-l-lg md:rounded-tr-none"
         >
           <img
-            :src="getArticleImage(article.id)"
+            :src="getArticleImage(article)"
             :alt="article.title"
             class="object-contain max-h-full max-w-full rounded-t-lg md:rounded-l-lg md:rounded-tr-none"
           />
         </div>
+        <!-- Права секція з даними статті -->
         <div class="p-6 flex-1">
           <h2 class="text-xl font-semibold mb-2">{{ article.title }}</h2>
           <p class="text-sm text-[var(--text-secondary)] mb-3">{{ formatDate(article.date) }}</p>
@@ -30,6 +32,7 @@
         </div>
       </article>
 
+      <!-- Повідомлення, якщо статті відсутні -->
       <div v-if="!sortedArticles.length" class="text-center py-12">
         <p class="text-lg text-[var(--text-secondary)]">No articles found</p>
       </div>
@@ -38,30 +41,43 @@
 </template>
 
 <script>
-const articleFiles = import.meta.glob('@/assets/data/articles/*.json', { eager: true })
-
 export default {
   name: 'ArticleList',
+  data() {
+    return {
+      // Список статей завантажується з маніфесту
+      articles: [],
+    }
+  },
   computed: {
     sortedArticles() {
-      const articles = Object.values(articleFiles).map((module) => ({
-        ...module.default,
-        date: module.default.date ? new Date(module.default.date) : new Date(),
-      }))
-      return articles.sort((a, b) => b.date - a.date)
+      return this.articles.sort((a, b) => new Date(b.date) - new Date(a.date))
     },
   },
+  created() {
+    this.loadArticles()
+  },
   methods: {
-    getArticleImage(id) {
-      const article = this.sortedArticles.find((a) => a.id.toString() === id.toString())
-      if (article && article['preview-image']) {
-        try {
-          return new URL(`../assets/${article['preview-image']}`, import.meta.url).href
-        } catch (error) {
-          console.error(`Failed to load preview image for article ${id}:`, error)
+    async loadArticles() {
+      try {
+        // Завантажуємо маніфест із статтями (public/articles/articles.json)
+        const response = await fetch('public/articles/articles.json')
+        if (!response.ok) {
+          throw new Error('Failed to load articles manifest')
         }
+        this.articles = await response.json()
+      } catch (error) {
+        console.error(error)
+        this.articles = []
       }
-      return new URL('../assets/placeholder.png', import.meta.url).href
+    },
+    getArticleImage(article) {
+      // Припускаємо, що стаття містить поле previewImage з ім'ям файлу зображення
+      if (article.previewImage) {
+        return `public/articles/${article.previewImage}`
+      }
+      // Запасний варіант — використання placeholder
+      return '/assets/placeholder.png'
     },
     formatDate(date) {
       if (!date) return ''
@@ -74,37 +90,3 @@ export default {
   },
 }
 </script>
-
-<style scoped>
-article {
-  opacity: 0;
-  animation: fadeIn 0.6s ease forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-article:nth-child(1) {
-  animation-delay: 0.1s;
-}
-article:nth-child(2) {
-  animation-delay: 0.2s;
-}
-article:nth-child(3) {
-  animation-delay: 0.3s;
-}
-article:nth-child(4) {
-  animation-delay: 0.4s;
-}
-article:nth-child(5) {
-  animation-delay: 0.5s;
-}
-</style>

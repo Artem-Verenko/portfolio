@@ -92,19 +92,34 @@ import { ref, watch, onMounted, onUnmounted } from 'vue'
 
 const achievements = [
   {
-    title: 'ASE comunity member',
+    title: 'TensorFlow Developer Certificate',
     description:
-      'The Agile Software Engineering (ASE) community is a group of individuals who are passionate about software development and agile methodologies.',
+      'Certified TensorFlow Developer with expertise in machine learning and deep learning frameworks. Credential verified at https://www.credential.net/8ca4a0b3-b199-406b-9e3d-1fc2cc787591',
   },
   {
-    title: 'AI chempion',
+    title: 'NICE AI Ambassador',
     description:
-      'With a focus on AI, I have been recognized as a champion in this field, demonstrating my expertise and commitment to advancing AI technologies.',
+      'Conducting workshops and driving the rapid adoption of AI technologies across multinational teams, helping organizations leverage AI for business transformation.',
   },
   {
-    title: 'Programming mentor',
+    title: 'ASE Community Member',
+    description:
+      'Agile Software Engineering community member - a group of individuals who are passionate about software development and agile methodologies.',
+  },
+  {
+    title: 'Programming Mentor',
     description:
       'As a programming mentor, I have guided and supported aspiring developers, sharing my knowledge and experience to help them grow in their careers.',
+  },
+  {
+    title: 'Customer Focus Team',
+    description:
+      'Contributed to the Customer Focus Team (CFT) for rapid issue resolution, ensuring high-quality customer experiences and efficient problem-solving processes.',
+  },
+  {
+    title: 'Member of Code Evolution',
+    description:
+      'Being part of this community allows me to stay at the forefront of GenAI, deepen my expertise, and connect with like-minded developers passionate about AI.',
   },
 ]
 

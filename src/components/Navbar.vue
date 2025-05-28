@@ -29,7 +29,7 @@
     </div>
     <!-- Mobile Menu -->
     <div
-      class="md:hidden overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(0.33,_1,_0.68,_1)] will-change-[height]"
+      class="mobile-menu-container md:hidden overflow-hidden transition-[height] duration-300 ease-[cubic-bezier(0.33,_1,_0.68,_1)] will-change-[height]"
       :style="{ height: mobileMenuOpen ? mobileMenuHeight + 'px' : '0px' }"
     >
       <div

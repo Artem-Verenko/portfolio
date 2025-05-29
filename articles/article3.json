@@ -1,0 +1,26 @@
+{
+  "id": 3,
+  "title": "100 JS Interview Questions",
+  "summary": "Prepare for your next JavaScript interview with these 100 essential questions covering everything from basics to advanced concepts.",
+  "date": "2025-03-15",
+  "preview-image": "article-preview-3.png",
+  "blocks": [
+    {
+      "type": "text",
+      "content": "1) Is JavaScript a multithreaded language? \nNo, JavaScript is single-threaded, meaning it can only execute one command at a time. However, it can handle asynchronous operations using callbacks, promises, and async/await. \n\n2) What is the difference between null and undefined? \nNull is an assignment value that represents no value, while undefined means a variable has been declared but not assigned a value. \n\n3) Explain the concept of closures in JavaScript. \nA closure is a function that retains access to its lexical scope, even when the function is executed outside that scope. This allows for data encapsulation and private variables."
+    },
+    {
+      "type": "subheading",
+      "content": ""
+    },
+    {
+      "type": "text",
+      "content": ""
+    },
+    {
+      "type": "image",
+      "alt": "",
+      "src": "article-illustration-2.png"
+    }
+  ]
+}

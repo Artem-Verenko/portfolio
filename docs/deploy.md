@@ -1,6 +1,10 @@
-# Deploy to GitHub Pages
+# Deploy to GitHub Pages (stable)
 
-- Ensure `vite.config.js` has the correct `base` (e.g. `/portfolio/`).
-- Build: `npm run build`.
-- Checkout `gh-pages`, replace its contents with `dist/`, add `.nojekyll`.
-- Commit and push: `git push origin gh-pages --force`.
+- Make sure `vite.config.js` `base` is correct (e.g. `/portfolio/`).
+- Build on `main`: `npm run build`.
+- One-time: add a worktree for gh-pages: `git worktree add ../portfolio-gh-pages gh-pages`.
+- For each deploy:
+  1.  `cd ../portfolio-gh-pages && rm -rf ./*` (leave `.git` untouched)
+  2.  `cp -r ../portfolio/dist/* .` and `touch .nojekyll`
+  3.  `git add -A && git commit -m "Deploy to gh-pages" && git push origin gh-pages`
+  4.  `cd ../portfolio`

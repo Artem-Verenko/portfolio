@@ -44,7 +44,7 @@ export const githubConfig = {
     books: 'books',
     booksDatabase: 'books/db_books.json',
     bookReviews: 'books/reviews',
-    cv: 'cv',
+    cv: 'CV',
   },
 
   // File naming templates

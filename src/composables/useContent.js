@@ -32,7 +32,7 @@ export function useArticle(id) {
     queryKey: computed(() => ['article', resolvedId.value]),
     queryFn: async () => {
       const markdown = await ContentRepository.fetchArticleMarkdown(resolvedId.value)
-      
+
       const parsed = await MarkdownService.parseWithFrontmatter(
         markdown,
         `${githubConfig.paths.articles}/${githubConfig.templates.article(resolvedId.value)}`,
@@ -42,7 +42,7 @@ export function useArticle(id) {
       try {
         const articles = await ContentRepository.fetchArticles()
         const articleMeta = articles.find(
-          (a) => a.id === resolvedId.value || a.id === String(resolvedId.value)
+          (a) => a.id === resolvedId.value || a.id === String(resolvedId.value),
         )
         if (articleMeta) {
           parsed.metadata = { ...articleMeta, ...parsed.metadata }
@@ -95,7 +95,7 @@ export function useBook(id) {
 
       for (const genre of booksDb.genres || []) {
         const book = genre.books.find(
-          (b) => b.id === resolvedId.value || b.id === Number(resolvedId.value)
+          (b) => b.id === resolvedId.value || b.id === Number(resolvedId.value),
         )
         if (book) {
           return { ...book, genre: genre.name }
@@ -135,7 +135,7 @@ export function useBookReview(id) {
         const booksDb = await ContentRepository.fetchBooks()
         for (const genre of booksDb.genres || []) {
           const book = genre.books.find(
-            (b) => b.id === resolvedId.value || b.id === Number(resolvedId.value)
+            (b) => b.id === resolvedId.value || b.id === Number(resolvedId.value),
           )
           if (book) {
             bookMeta = { ...book, genre: genre.name }
@@ -166,10 +166,10 @@ export function useBookReview(id) {
  * @param {string} filename - CV filename (optional)
  * @returns {object} - Query result with CV URL
  */
-export function useCvUrl(filename = 'Artem-Verenko-CV.pdf') {
+export function useCvUrl(filename = null) {
   return useQuery({
     queryKey: ['cvUrl', filename],
-    queryFn: () => ContentRepository.getCvUrl(filename),
+    queryFn: () => ContentRepository.getResolvedCvUrl(filename),
     staleTime: 24 * 60 * 60 * 1000, // 24 hours
     gcTime: 7 * 24 * 60 * 60 * 1000, // 7 days
     refetchOnWindowFocus: false,

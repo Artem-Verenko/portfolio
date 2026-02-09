@@ -7,7 +7,7 @@
         <!-- For medium and large screens show "Hello, I'm" -->
         <h2 class="hidden md:block bg-clip-text text-5xl md:text-6xl font-bold mb-4 animate-fadeIn">
           Hello, I'm
-        </h2>
+          </h2>
         <!-- For small screens show DottedRing with image -->
         <div class="block md:hidden mb-2">
           <div class="relative w-32 h-32 flex-shrink-0 overflow-hidden mx-auto">

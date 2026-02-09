@@ -6,7 +6,7 @@ import ContentRepository from '@/services/github/ContentRepository.js'
  */
 class CvService {
   constructor() {
-    this.defaultFilename = 'Artem-Verenko-CV.pdf'
+    this.defaultFilename = 'Artem-Verenko-05-2025.pdf'
   }
 
   /**

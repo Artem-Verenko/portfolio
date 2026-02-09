@@ -1,5 +1,8 @@
 import githubConfig from '@/config/github.config.js'
 
+const CV_PREFIX = 'Artem-Verenko'
+const CV_DEFAULT_FILENAME = 'Artem-Verenko-05-2025.pdf'
+
 /**
  * ContentRepository - Handles content fetching from public GitHub repository
  * Uses GitHub raw URLs for direct file access without API authentication
@@ -74,12 +77,49 @@ class ContentRepository {
   }
 
   /**
-   * Get CV file URL
-   * @param {string} filename - CV filename (default: Artem-Verenko-CV.pdf)
+   * Get CV file URL (no lookup, direct)
+   * @param {string} filename - CV filename
    * @returns {string} - GitHub raw URL to CV
    */
-  getCvUrl(filename = 'Artem-Verenko-CV.pdf') {
+  getCvUrl(filename) {
     return githubConfig.getRawUrl(`${githubConfig.paths.cv}/${filename}`)
+  }
+
+  /**
+   * Resolve latest CV filename by prefix; falls back to default on any failure.
+   * @param {string} prefix - Filename prefix to match
+   * @returns {Promise<string>} - Resolved filename
+   */
+  async getLatestCvFilename(prefix = CV_PREFIX) {
+    try {
+      const apiUrl = `https://api.github.com/repos/${githubConfig.owner}/${githubConfig.repo}/contents/${githubConfig.paths.cv}?ref=${githubConfig.branch}`
+      const response = await fetch(apiUrl)
+      if (!response.ok) throw new Error(`GitHub API responded ${response.status}`)
+
+      const data = await response.json()
+      if (!Array.isArray(data)) throw new Error('Unexpected GitHub API response')
+
+      const candidates = data
+        .filter((item) => item.type === 'file' && item.name.startsWith(prefix) && item.name.toLowerCase().endsWith('.pdf'))
+        .map((item) => item.name)
+        .sort()
+
+      return candidates[candidates.length - 1] || CV_DEFAULT_FILENAME
+    } catch (error) {
+      console.warn('Falling back to default CV filename:', error.message)
+      return CV_DEFAULT_FILENAME
+    }
+  }
+
+  /**
+   * Resolve a CV URL, optionally using a specific filename. If no filename provided,
+   * tries to find the latest by prefix, otherwise falls back to default.
+   * @param {string|null} filename - CV filename override
+   * @returns {Promise<string>} - Resolved raw URL
+   */
+  async getResolvedCvUrl(filename = null) {
+    const resolvedName = filename || (await this.getLatestCvFilename())
+    return this.getCvUrl(resolvedName)
   }
 
   /**

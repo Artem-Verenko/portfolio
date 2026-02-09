@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 @import 'tailwindcss';
+@import 'github-markdown-css/github-markdown.css';
 
 :root {
   --font-mono: 'JetBrains Mono', monospace;
@@ -58,4 +59,73 @@ body {
 
 .router-link-exact-active {
   color: var(--accent-hover);
+}
+
+/* GitHub Markdown Styles - Theme Integration */
+.markdown-body {
+  background-color: transparent;
+  color: var(--text-color);
+  font-family: var(--font-sans);
+  box-sizing: border-box;
+  min-width: 200px;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 45px;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  color: var(--text-color);
+}
+
+.markdown-body a {
+  color: var(--accent-color);
+}
+
+.markdown-body a:hover {
+  color: var(--accent-hover);
+}
+
+.markdown-body code {
+  background-color: var(--bg-secondary);
+  color: var(--text-color);
+}
+
+.markdown-body pre {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+}
+
+.markdown-body blockquote {
+  color: var(--text-secondary);
+  border-left-color: var(--accent-color);
+}
+
+.markdown-body table tr {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+}
+
+.markdown-body table tr:nth-child(2n) {
+  background-color: var(--bg-secondary);
+}
+
+.markdown-body table th,
+.markdown-body table td {
+  border: 1px solid var(--border-color);
+}
+
+.markdown-body hr {
+  background-color: var(--border-color);
+  border: 0;
+}
+
+@media (max-width: 767px) {
+  .markdown-body {
+    padding: 15px;
+  }
 }

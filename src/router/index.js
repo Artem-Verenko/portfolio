@@ -1,11 +1,14 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import Blog from '../views/Blog.vue'
-import Books from '../views/Books.vue'
+import { createRouter, createWebHistory } from 'vue-router'
+import ArticleList from '@/components/blog/ArticleList.vue'
+import BookList from '@/components/books/BookList.vue'
 import Home from '@/views/Home.vue'
 import ArticlePage from '@/views/ArticlePage.vue'
+import BookReviewPage from '@/views/BookReviewPage.vue'
+import NotFound from '@/views/NotFound.vue'
+import { setupPrefetching } from '@/utils/prefetch.js'
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
@@ -15,7 +18,7 @@ const router = createRouter({
     {
       path: '/blog',
       name: 'Blog',
-      component: Blog,
+      component: ArticleList,
     },
     {
       path: '/blog/articles/:id',
@@ -26,9 +29,23 @@ const router = createRouter({
     {
       path: '/books',
       name: 'Books',
-      component: Books,
+      component: BookList,
+    },
+    {
+      path: '/books/:id',
+      name: 'BookReviewPage',
+      component: BookReviewPage,
+      props: true,
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: NotFound,
     },
   ],
 })
+
+// Setup automatic prefetching
+setupPrefetching(router)
 
 export default router

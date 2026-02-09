@@ -104,7 +104,7 @@ describe('Navbar', () => {
   })
 
   it('handles navigation correctly', async () => {
-    const wrapper = mount(Navbar, {
+    mount(Navbar, {
       global: { plugins: [router] },
     })
 

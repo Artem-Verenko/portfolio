@@ -1,5 +1,5 @@
 <template>
-  <div class="article-page pt-18">
+  <div class="book-review-page pt-18">
     <!-- Loading State -->
     <div v-if="isLoading" class="flex justify-center items-center py-16">
       <div
@@ -9,25 +9,30 @@
 
     <!-- Error State -->
     <div v-else-if="error" class="text-center py-16">
-      <h2 class="text-2xl font-bold text-[var(--text-color)]">Article not found</h2>
+      <h2 class="text-2xl font-bold text-[var(--text-color)]">Book review not found</h2>
       <p class="text-[var(--text-secondary)] mt-2">{{ error.message }}</p>
       <router-link
-        to="/blog"
+        to="/books"
         class="mt-4 inline-block text-[var(--accent-color)] hover:text-[var(--accent-hover)]"
       >
-        Back to Blog
+        Back to Books
       </router-link>
     </div>
 
-    <!-- Article Content -->
-    <ArticleView v-else-if="article" :metadata="article.metadata" :html-content="article.html" />
+    <!-- Book Review Content -->
+    <BookReviewView
+      v-else-if="review"
+      :metadata="review.metadata"
+      :html-content="review.html"
+      :book="review.book"
+    />
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import ArticleView from '@/components/blog/ArticleView.vue'
-import { useArticle } from '@/composables/useContent.js'
+import BookReviewView from '@/components/books/BookReviewView.vue'
+import { useBookReview } from '@/composables/useContent.js'
 
 const props = defineProps({
   id: {
@@ -36,5 +41,5 @@ const props = defineProps({
   },
 })
 
-const { data: article, isLoading, error } = useArticle(computed(() => props.id))
+const { data: review, isLoading, error } = useBookReview(computed(() => props.id))
 </script>

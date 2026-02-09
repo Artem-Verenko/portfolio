@@ -1,26 +1,13 @@
 <template>
   <div>
     <HeroSection />
-    <CvController />
+    <CvSection />
     <Achievements />
   </div>
 </template>
 
-<script>
-import HeroSection from '@/components/HeroSection.vue'
-import Education from '@/components/Education.vue'
-import WorkExperience from '@/components/WorkExperience.vue'
-import CvController from '@/components/CvController.vue'
-import Achievements from '@/components/Achievements.vue'
-
-export default {
-  name: 'Home',
-  components: {
-    HeroSection,
-    Education,
-    WorkExperience,
-    CvController,
-    Achievements,
-  },
-}
+<script setup>
+import HeroSection from '@/components/home/HeroSection.vue'
+import CvSection from '@/components/home/CvSection.vue'
+import Achievements from '@/components/home/Achievements.vue'
 </script>

@@ -2,6 +2,14 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
+## 🖼️ Private Repository Images
+
+**Important:** If you're using a **private GitHub repository**, images won't load with standard raw URLs.
+
+✅ **Quick Fix:** Add `VITE_GITHUB_REPO_PRIVATE=true` to your `.env.local` file.
+
+See [PRIVATE_REPO_IMAGES_QUICK.md](./PRIVATE_REPO_IMAGES_QUICK.md) for a 2-minute setup guide.
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).

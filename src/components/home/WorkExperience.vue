@@ -41,29 +41,28 @@ import dbCards from '@/assets/data/db_cards.json'
 
 const workExperiences = ref([])
 
+const assetModules = import.meta.glob('../../assets/*.{png,jpg,jpeg,svg,webp}', {
+  eager: true,
+  import: 'default',
+})
+
+const assetByName = Object.fromEntries(
+  Object.entries(assetModules).map(([path, url]) => [path.split('/').pop(), url]),
+)
+
 const getImageUrl = (path) => {
   if (!path) return ''
 
-  try {
-    if (path.startsWith('@/')) {
-      // Resolve @ alias relative to this file location.
-      return new URL(path.replace('@/', '../../'), import.meta.url).href
-    }
-
-    if (path.startsWith('./') || path.startsWith('../')) {
-      return new URL(path, import.meta.url).href
-    }
-
-    if (path.match(/^https?:\/\//)) {
-      return path
-    }
-
-    // Assume path is relative to src/assets.
-    return new URL(`../../assets/${path}`, import.meta.url).href
-  } catch (error) {
-    console.error(`Failed to load image: ${path}`, error)
-    return ''
+  if (path.match(/^https?:\/\//)) {
+    return path
   }
+
+  if (assetByName[path]) {
+    return assetByName[path]
+  }
+
+  console.warn(`Missing asset mapping for: ${path}`)
+  return ''
 }
 
 onMounted(() => {
